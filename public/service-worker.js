@@ -44,6 +44,7 @@ self.addEventListener("activate", function(evt) {
 
 // fetch
 self.addEventListener("fetch", function(evt) {
+  // console.log('fetch event', evt)
   if (evt.request.url.includes("/api/")) {
     evt.respondWith(
       caches.open(DATA_CACHE_NAME).then(cache => {
@@ -58,6 +59,7 @@ self.addEventListener("fetch", function(evt) {
           })
           .catch(err => {
             // Network request failed, try to get it from the cache.
+            console.log('hi')
             return cache.match(evt.request);
           });
       }).catch(err => console.log(err))
@@ -74,3 +76,4 @@ self.addEventListener("fetch", function(evt) {
     })
   );
 });
+//Yes

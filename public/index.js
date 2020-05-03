@@ -82,6 +82,8 @@ function populateChart() {
   });
 }
 
+
+
 function sendTransaction(isAdding) {
   let nameEl = document.querySelector("#t-name");
   let amountEl = document.querySelector("#t-amount");
@@ -139,7 +141,7 @@ function sendTransaction(isAdding) {
     }
   })
   .catch(err => {
-    console.log("test")
+    console.log('lobo')
     // fetch failed, so save in indexed db
     saveRecord(transaction);
 
